@@ -1,0 +1,5 @@
+rootProject.name = 'BLOG'
+
+include 'blog_dao', 'blog_service', 'blog_web'
+
+

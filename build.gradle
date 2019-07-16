@@ -1,0 +1,39 @@
+group 'com.yzhl'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    ext.springBootVersion = '2.1.0.RELEASE'
+
+    repositories {
+
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'org.springframework.boot'
+
+    group = 'com.ting'
+    version = '0.0.1-SNAPSHOT'
+    sourceCompatibility = 1.8
+    [compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
+
+    repositories {
+        mavenLocal()
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+        mavenCentral()
+    }
+
+    jar {
+        manifest {
+            attributes("Implementation-Title": "Gradle")
+        }
+    }
+
+}
